@@ -1,38 +1,70 @@
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.container {
+  border-radius: 5px;
+  background: #FFBC97;
+  position: relative;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-wrap: wrap;
+  overflow: hidden; /* Hide overflow */
+  align-content: flex-start; /* Align items at the start of the container */
+}
+
+.row {
+  display: flex;
+  flex-wrap: nowrap; /* Prevent wrapping items to the next line */
+}
+
+.resizeable {
+  position: relative; /* Make position relative to allow absolute positioning of resizers */
+  border: 2px solid #533535;
+  width: 200px;
+  height: 200px;
+  border-radius: 3px;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  margin: 5px; /* Add some margin between resizable divs */
 }
 
-.App-link {
-  color: #61dafb;
+.resizer {
+  position: absolute;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.resizer-r {
+  cursor: col-resize;
+  height: 100%;
+  right: 0;
+  top: 0;
+  width: 5px;
+}
+
+.resizer-t,
+.resizer-b {
+  cursor: row-resize;
+  height: 5px;
+  width: 100%;
+}
+
+.resizer-t {
+  top: 0;
+}
+
+.resizer-b {
+  bottom: 0;
+}
+
+.resizer-l {
+  cursor: col-resize;
+  height: 100%;
+  left: 0;
+  top: 0;
+  width: 5px;
+}
+
+.resizable-content {
+  background-color: white; /* Set background color for resizable content */
 }
